@@ -1,14 +1,25 @@
-const a = parseFloat (prompt('enter A'));
-const b = parseFloat (prompt('enter B'));
-const c = parseFloat (prompt('enter C'));
+const a = parseFloat(prompt('enter A'));
+const b = parseFloat(prompt('enter B'));
+const c = parseFloat(prompt('enter C'));
 const d = calcDiscr(a, b, c);
-// вирішення квадратного рівняння
-       const x1 = (- b + Math.sqrt(d))/ (2 * a);
-       const x2 = (- b - Math.sqrt(d))/ (2 * a);
-// розрахунок дискримінанта       
-function calcDiscr (a, b, c) {
-        return b*b - 4*a*c;
+const result = solveQard(a, b, c);
+alert(result);
+
+function solveQard(a, b, c) {
+    const d = calcDiscr(a, b, c);
+    if (d === 0) {
+        const x = -b / (2 * a);
+        return 'We have only one result: x1 = ' + x;
+    }
+    if (d > 0) {
+        const x1 = (-b + Math.sqrt(d)) / (2 * a);
+        const x2 = (-b - Math.sqrt(d)) / (2 * a);
+        return 'We have two results: x1 = ' + x1 + ' , x2 = ' + x2;
+    } else if (d < 0) {
+        return 'Sorry, the discriminant is less than zero';
+    }
 }
-document.write('Value of Discriminant is: ' + d + ';');
-document.write('Value of x1 is: ' + x1 + ';Value x2 is:' + x2);
-// вийшло вирішення задачки тільки з функцією до розрахунку дискримінанту, але скріпт вирішує квадратне рівняння вірно
+
+function calcDiscr(a, b, c) {
+    return b * b - 4 * a * c;
+}
