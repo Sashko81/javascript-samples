@@ -3,8 +3,8 @@ const b = parseFloat(prompt('enter B'));
 const c = parseFloat(prompt('enter C'));
 const d = calcDiscr(a, b, c);
 const result = solveQard(a, b, c);
-alert(result);
-
+alert(result); 
+// рахуємо квадратне рівняння
 function solveQard(a, b, c) {
     const d = calcDiscr(a, b, c);
     if (d === 0) {
@@ -19,7 +19,7 @@ function solveQard(a, b, c) {
         return 'Sorry, the discriminant is less than zero';
     }
 }
-
+// знаходимо дискримінант
 function calcDiscr(a, b, c) {
     return b * b - 4 * a * c;
 }
